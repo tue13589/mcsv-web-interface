@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/node_modules/xterm/css/xterm.css" />
+    <script src="/node_modules/xterm/lib/xterm.js"></script>
+    <script src="/node_modules/xterm-addon-webgl/lib/xterm-addon-webgl.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        #terminal {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body><br>
+    <a href="/">&nbsp&nbsp&nbsp Back to server list</a>
+    <script>
+    const id = ":id";
+    </script>
+    <nav>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn" onclick="act.send('start')">
+                <i class="material-icons">play_arrow</i>
+            </label>
+            <label class="btn" onclick="act.send('stop')">
+                <i class="material-icons">stop</i>
+            </label>
+            <label class="btn" onclick="act.send('force')">
+                <i class="material-icons">close</i>
+            </label>
+            <label class="btn" onclick="act.send('restart')">
+                <i class="material-icons">replay</i>
+            </label>
+        </div>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="console-tab" data-bs-toggle="tab" data-bs-target="#nav-cs"
+                type="button" role="tab" aria-controls="nav-cs" aria-selected="true"><span class="material-icons">
+                    terminal
+                </span> Console</button>
+            <button class="nav-link" id="monitor-tab" data-bs-toggle="tab" data-bs-target="#nav-mn" type="button"
+                role="tab" aria-controls="nav-mn" aria-selected="false"><span class="material-icons">
+                    memory
+                </span> Monitor</button>
+            <button class="nav-link" id="startup-tab" data-bs-toggle="tab" data-bs-target="#nav-st" type="button"
+                role="tab" aria-controls="nav-st" aria-selected="false"><span class="material-icons">
+                    directions_run
+                </span> Startup</button>
+        </div>
+    </nav>
+    <div class="tab-content container" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-cs" role="tabpanel" aria-labelledby="console-tab">
+            <div id="terminal"></div>
+        </div>
+        <div class="tab-pane fade" id="nav-mn" role="tabpanel" aria-labelledby="monitor-tab">
+            <div class="row">
+                <div class="col">
+                    <canvas id="cpu-chart"></canvas>
+                </div>
+                <div class="col">
+                    <canvas id="memory-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-st" role="tabpanel" aria-labelledby="startup-tab">
+            <div class="row">
+                <div class="col">
+                    Xmx
+                    <div class="form-group"><input type="text" class="form-control"></div>
+                </div>
+                <div class="col">
+                    Xms
+                    <div class="form-group"><input type="text" class="form-control"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"
+        integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/chart.js"></script>
+    <script src="/xt.js"></script>
+
+</body>
+
+</html>
